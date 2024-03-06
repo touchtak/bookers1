@@ -1,3 +1,75 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+body.index-body>div.notice{
+  margin-left: 33px;
+  margin-bottom: 33px;
+}
+body.index-body>h1{
+  margin-bottom:18px;
+
+}
+body.index-body>table{
+  table-layout: fixed;
+  width: 61%;
+}
+tr.table-title>th{
+  padding-bottom: 5px;
+}
+tr.table-item{
+  width: 61%;
+}
+tr.table-item>td{
+  padding: 0 5px 7px;
+}
+.ti{
+  width: 16%;
+}
+.bo{
+  width: 33%;
+}
+.sh{
+  width: 4%;
+}
+.ed{
+  width: 3%;
+}
+.de{
+  width: 5%;
+}
+#nb{
+  margin: 15px 0;
+}
+.create{
+  margin: 5px 0;
+}
+div.create>div{
+  margin: 10px 0;
+}
+div.create>div p{
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+.fl{
+  margin-bottom: 10px;
+}
+body.show-body>div.notice{
+  margin-left: 33px;
+}
+body.show-body>p{
+  margin: 33px;
+}
+.show-link{
+  color: #777;
+}
+body.show-body>a{
+  color: #777;
+}
+#df{
+  flex: block;
+  margin-top: 17.5px;
+  margin-bottom: 11.5px;
+}

@@ -1,50 +1,70 @@
-<h2>Books</h2>
+<body class="index-body">
 
-<% @books.each do |book| %>
-<table>
-  <tr class="table-title">
-    <th>Title</th>
-    <th>Body</th>
-    <th colspan="3"></th>
-  </tr>
-  <tr>
-    <td>
-      <%= book.title %>
-    </td>
-    <td>
-      <%= book.body %>
-    </td>
-    <td>
-      <%= link_to "Show", book_path(book.id) %>
-    </td>
-    <td>
-      <%= link_to "Edit", edit_book_path(book.id) %>
-    </td>
-    <td>
-    <%= link_to "Destroy", book, method: :delete, data: { confirm: "Are you sure?" } %>
-    </td>
-  </tr>
-</table>
-<% end %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
 
-<h2>New book</h2>
+  <h1>Books</h1>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %> errors prohibited this book from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+
+  <table>
+    <thead>
+      <tr class="table-title">
+        <th class="ti">Title</th>
+        <th class="bo">Body</th>
+        <th class="sh"></th>
+        <th class="ed"></th>
+        <th class="de"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+      <tr class="table-item">
+        <td class="ti">
+          <%= book.title %>
+        </td>
+        <td class="bo">
+          <%= book.body %>
+        </td>
+        <td class="sh">
+          <%= link_to "Show", book_path(book.id), class: "link" %>
+        </td>
+        <td class="ed">
+          <%= link_to "Edit", edit_book_path(book.id), class: "link" %>
+        </td>
+        <td class="de">
+        <%= link_to "Destroy", book, method: :delete, data: { confirm: "Are you sure?" }, class: "link" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2 id="nb">New book</h2>
+
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %> errors prohibited this book from being saved:
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="create">
+    <%= form_with model: @book, url: '/books', method: :post do |f| %>
+
+    <div>
+      <p>Title</p>
+      <%= f.text_field :title, class: "fl" %>
+    </div>
+
+    <div>
+      <p>Body</p>
+      <%= f.text_area :body, class: "fl" %>
+    </div>
+
+      <%= f.submit ' Create Book ' %>
     <% end %>
-  </ul>
-<% end %>
-
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
-
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-
-  <h4>Body</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit 'Create Book' %>
-<% end %>
+  </div>
+</body>
