@@ -1,11 +1,8 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div>
+  <%= flash[:notice] %>
+</div>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<p>Title: <%= @book.title %></p>
+<p>Body: <%= @book.body %></p>
+
+<%= link_to "Edit", edit_book_path(@book.id) %>|<a href="/books">Back</a>
